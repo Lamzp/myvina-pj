@@ -32,11 +32,13 @@ body {
   &__panel {
     position: relative;
     isolation: isolate;
-    flex-basis: calc(($panel-padding * 2) + 3rem);
+    flex-basis: calc(($panel-padding * 2) + 30rem);
     overflow: hidden;
     padding: $panel-padding;
 
     transition: flex-basis 500ms;
+    transition: all 500ms linear;
+    opacity: 0.5;
   }
 
   &__img {
@@ -48,6 +50,33 @@ body {
     object-fit: cover;
     z-index: -1;
   }
+  &__trigger {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    background-color: transparent;
+    outline: none;
+    border: none;
+
+    position: absolute;
+    bottom: 165px;
+    left: 50%;
+    transform: translateX(-50%);
+    & > span {
+      font-size: 32px;
+      font-weight: 400;
+    }
+  }
+  &__icon {
+    display: inline-flex;
+    width: 50px;
+    height: 50px;
+    border: 2px solid #fff;
+    border-radius: 50%;
+    align-items: center;
+    justify-content: center;
+  }
 }
 .accordion__content > p {
   transform: translateY(4rem);
@@ -55,5 +84,6 @@ body {
 }
 .accordion__panel:has([aria-expanded="true"]) {
   flex-basis: 100%;
+  opacity: 1;
   //   clamp(15rem, 40vh, 20rem)
 }
